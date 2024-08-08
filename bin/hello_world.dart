@@ -1,4 +1,4 @@
 void main(){
-    print('Hello World');
+    print('Hello World'); //boleh menggunakan ""/''
     print('Assalamualaikum');
 }
