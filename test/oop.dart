@@ -78,29 +78,38 @@
 //direct constructor
 void main(){
   var pakaian = Pakaian(warna: 'Putih', jenis: 'Baju', ukuran: 'M');
-  print('${pakaian.jenis} = Warna ${pakaian.warna} = Ukuran ${pakaian.ukuran}');
+  print('${pakaian.jenis} = Warna ${pakaian.warna} = Ukuran ${pakaian.ukuran()}');
 
   var pakaian1 = Pakaian(jenis:'Baju', warna: 'Biru', ukuran: 'XL');
-  print('${pakaian1.jenis} = Warna ${pakaian1.warna} = Ukuran ${pakaian1.ukuran}');
+  print('${pakaian1.jenis} = Warna ${pakaian1.warna} = Ukuran ${pakaian1.ukuran()}');
   print('GANTI UKURAN');
-  pakaian1.gantiUkuran('XXL');
-  print('${pakaian1.jenis} = Warna ${pakaian1.warna} = Ukuran ${pakaian1.ukuran}');
+  //pakaian.ukuran = 'L'; //tidak diizinkan ganti private atribute
+  pakaian1.gantiUkuran('XXL'); //harus menggunakan method jika menggunakan private atribute
+  print('${pakaian1.jenis} = Warna ${pakaian1.warna} = Ukuran ${pakaian1.ukuran()}'); //jika diganti dengan _ukuran itu bisa dieksekusi padahal bersifat private, solusinya adalah harus berbeda file
+  //dan nanti jika berbeda file maka _ukuran gaada adanya method ukuran()
 }
 
 class Pakaian {
   //Atribute
   String? jenis; //digunakan untuk mendeklarasi atribute
   String? warna;
-  String? ukuran;
+  String? _ukuran; //atribute menjadi private
 
  //Direct name Constructor
-  Pakaian({this.jenis, this.warna, this.ukuran});
-
+  Pakaian({this.jenis, this.warna, String? ukuran}){
+     _ukuran = ukuran;
+  }
+  
   //Direct position Constructor
   // Pakaian(this.jenis, this.warna); //syaratnya posisi pada cunstructor harus benar
 
   //Method
   void gantiUkuran(String? ukuranBaru){
-    ukuran = ukuranBaru;
+    _ukuran = ukuranBaru;
+  }
+
+  //fungsi get biasa
+  String? ukuran(){
+    return _ukuran;
   }
 }
