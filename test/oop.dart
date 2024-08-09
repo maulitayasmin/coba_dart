@@ -84,7 +84,7 @@ void main(){
   print('${pakaian1.jenis} = Warna ${pakaian1.warna} = Ukuran ${pakaian1.ukuran}');
   print('GANTI UKURAN');
   //pakaian.ukuran = 'L'; //tidak diizinkan ganti private atribute
-  pakaian1.ukuran = 'XXL'; //harus menggunakan method jika menggunakan private atribute
+  pakaian1.setukuran = 'XXL'; //harus menggunakan method jika menggunakan private atribute
   print('${pakaian1.jenis} = Warna ${pakaian1.warna} = Ukuran ${pakaian1.ukuran}'); //jika diganti dengan _ukuran itu bisa dieksekusi padahal bersifat private, solusinya adalah harus berbeda file
   //dan nanti jika berbeda file maka _ukuran gaada adanya method ukuran()
 }
@@ -110,7 +110,7 @@ class Pakaian {
   }
 
   //setter
-  void set ukuran(String? ukuranBaru){ //set mesti tipenya void
+  void set setukuran(String? ukuranBaru){ //set mesti tipenya void
     _ukuran = ukuranBaru;
   }
 
