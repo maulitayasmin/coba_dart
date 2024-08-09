@@ -78,14 +78,14 @@
 //direct constructor
 void main(){
   var pakaian = Pakaian(warna: 'Putih', jenis: 'Baju', ukuran: 'M');
-  print('${pakaian.jenis} = Warna ${pakaian.warna} = Ukuran ${pakaian.ukuran()}');
+  print('${pakaian.jenis} = Warna ${pakaian.warna} = Ukuran ${pakaian.ukuran}');
 
   var pakaian1 = Pakaian(jenis:'Baju', warna: 'Biru', ukuran: 'XL');
-  print('${pakaian1.jenis} = Warna ${pakaian1.warna} = Ukuran ${pakaian1.ukuran()}');
+  print('${pakaian1.jenis} = Warna ${pakaian1.warna} = Ukuran ${pakaian1.ukuran}');
   print('GANTI UKURAN');
   //pakaian.ukuran = 'L'; //tidak diizinkan ganti private atribute
-  pakaian1.gantiUkuran('XXL'); //harus menggunakan method jika menggunakan private atribute
-  print('${pakaian1.jenis} = Warna ${pakaian1.warna} = Ukuran ${pakaian1.ukuran()}'); //jika diganti dengan _ukuran itu bisa dieksekusi padahal bersifat private, solusinya adalah harus berbeda file
+  pakaian1.ukuran = 'XXL'; //harus menggunakan method jika menggunakan private atribute
+  print('${pakaian1.jenis} = Warna ${pakaian1.warna} = Ukuran ${pakaian1.ukuran}'); //jika diganti dengan _ukuran itu bisa dieksekusi padahal bersifat private, solusinya adalah harus berbeda file
   //dan nanti jika berbeda file maka _ukuran gaada adanya method ukuran()
 }
 
@@ -104,12 +104,23 @@ class Pakaian {
   // Pakaian(this.jenis, this.warna); //syaratnya posisi pada cunstructor harus benar
 
   //Method
+  //set biasa
   void gantiUkuran(String? ukuranBaru){
     _ukuran = ukuranBaru;
   }
 
+  //setter
+  void set ukuran(String? ukuranBaru){ //set mesti tipenya void
+    _ukuran = ukuranBaru;
+  }
+
   //fungsi get biasa
-  String? ukuran(){
+  // String? ukuran(){
+  //   return _ukuran;
+  // }
+
+  //getter -> mengambil suatu data atribute yang private kemudian di return
+  String? get ukuran {
     return _ukuran;
   }
 }
