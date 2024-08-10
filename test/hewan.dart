@@ -5,14 +5,10 @@ class Hewan {
   String kategori; //mamalalia, reptil
   String nama; //kucing, kambing
   late int _berat; // dalam kg --> sifatnya wajib karena required
-  int? kecepatanLari;
-  int? kecepatanBerenang;
-  int? kecepatanTerbang;
-  int? jumlahKaki; 
 
   //Nb : late itu fitur null safety
 
-  Hewan({required this.kategori, required this.nama, required int berat, this.jumlahKaki, this.kecepatanBerenang, this.kecepatanLari, this.kecepatanTerbang}){
+  Hewan({required this.kategori, required this.nama, required int berat}){
     _berat = berat;
   }
 

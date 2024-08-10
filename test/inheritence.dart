@@ -1,7 +1,9 @@
-import './hewan.dart';
+import './kucing.dart';
+import './burung.dart';
+import './ikan.dart';
 
 void main(){
-  Hewan hewan1 = Hewan(nama: 'Kucing', berat: 10, kategori: 'Mamalia', jumlahKaki: 4, kecepatanLari: 5);
+  Kucing hewan1 = Kucing(jumlahKaki: 4, kecepatanLari: 5, berat:5); //inisialisasi
   print('Hewan 1        : ${hewan1.nama} - ${hewan1.kategori}');
   print('Berat          : ${hewan1.berat} KG');
   print('Jumlah Kaki    : ${hewan1.jumlahKaki}');
@@ -12,7 +14,7 @@ void main(){
 
   print('\n===============================\n');
   //Misalkan ada hewan lainnya
-  Hewan hewan2 = Hewan(nama: 'Burung', berat: 5, kategori: 'Unggas', jumlahKaki: 2, kecepatanTerbang: 4);
+  Burung hewan2 = Burung(jumlahKaki: 2, kecepatanTerbang: 4, berat: 3);
   print('Hewan 2           : ${hewan2.nama} - ${hewan2.kategori}');
   print('Berat             : ${hewan2.berat} KG');
   print('Jumlah Kaki       : ${hewan2.jumlahKaki}');
@@ -23,7 +25,7 @@ void main(){
 
   print('\n===============================\n');
 
-  Hewan hewan3 = Hewan(nama: 'Ikan', berat: 2, kategori: 'Hewan Laut', kecepatanBerenang: 6);
+  Ikan hewan3 = Ikan(kecepatanBerenang: 6, berat: 2);
   print('Hewan 3           : ${hewan3.nama} - ${hewan3.kategori}');
   print('Berat             : ${hewan3.berat} KG');
   // print('Jumlah Kaki       : ${hewan3.jumlahKaki}');
@@ -31,4 +33,7 @@ void main(){
   print('------- MAKAN -------');
   hewan3.makan = 4;
   print('Berat sekarang ${hewan3.berat}');
+
+  //Abstrak class tidak bisa diinisialisasi
+  //jadi jika nnantinya menggunakan abstrak class pada class hewan maka akan terjadi eror saat inisialisasi
 }
